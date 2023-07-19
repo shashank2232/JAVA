@@ -24,7 +24,52 @@ Note: The constructor name must match the class name, and it cannot have a retur
 (i) Default Constructor: A constructor is called "Default Constructor" when it doesn't have any parameter.
 (ii) Parameterized Constructor: A constructor which has a specific number of parameters is called a parameterized constructor.
 
-Constructor Overloading:
+Constructor Overloading: Constructor overloading in Java is a technique of having more than one constructor with different parameter lists. They are arranged in a 
+way that each constructor performs a different task.They are differentiated by the compiler by the number of parameters in the list and their types.
+
+-> Use of this () in constructor overloading
+this is a reference variable that refers to the current object.
+See this, here parameters (formal arguments) and instance variables are same. So, we are using this keyword to distinguish local variable and instance variable.
+class Student{  
+int rollno;  
+String name;  
+float fee;  
+Student(int rollno,String name,float fee){  
+rollno=rollno;  
+name=name;  
+fee=fee;  
+}  
+void display(){
+System.out.println(rollno+" "+name+" "+fee);}  
+}  
+class TestThis1{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit",5000f);  
+Student s2=new Student(112,"sumit",6000f);  
+s1.display();  
+s2.display();  
+}} 
+
+After using this():
+class Student{  
+int rollno;  
+String name;  
+float fee;  
+Student(int rollno,String name,float fee){  
+this.rollno=rollno;  
+this.name=name;  
+this.fee=fee;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+fee);}  
+}  
+class TestThis2{  
+public static void main(String args[]){  
+Student s1=new Student(111,"ankit",5000f);  
+Student s2=new Student(112,"sumit",6000f);  
+s1.display();  
+s2.display();  
+}} 
+
 
 
 
