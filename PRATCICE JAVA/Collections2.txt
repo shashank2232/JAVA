@@ -1,0 +1,57 @@
+package java_collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// ArrayList (modified array)
+public class Collections1 {
+    public static void main(String[] args){
+        // GENERICS(to supply a class, this ArrayList is of type Integer)
+        ArrayList<Integer> numbers = new ArrayList<Integer>();        // () contains size, initially size is 10
+        // to add values .add
+        numbers.add(100);
+        numbers.add(200);
+        numbers.add(300);
+        // numbers.add(0,5);         this adds 5 to 0th element
+
+        // to get values .get
+        System.out.println(numbers.get(0));
+        System.out.println(numbers.get(1));
+
+        // to iterate over all items
+        System.out.println("Iteration using indexes: ");
+        for(int i=0;i < numbers.size();i++){
+            System.out.println(numbers.get(i));
+            // for an array we straightaway do numbers[i]
+        }
+
+        // iterating using values not indexes, note: type is Integer here not int
+        System.out.println("Iteration using values: ");
+        for(Integer value: numbers){
+            System.out.println(value);
+        }
+
+        // removing items from ArrayList
+        // very slow because when we remove first item from array, it copies all elements one step back to fill that position, this
+        // slows the process when list is very long ,  here comes LinkedList(removal of any element from first to middle or last is easy)
+        numbers.remove(0);                   // removes first element
+        numbers.remove(numbers.size() - 1);   // removes last element(very fast)
+        // iterating over array after removing elements
+        System.out.println("Iterating over array after removing elements: ");
+        for(Integer value: numbers){
+            System.out.println(value);
+        }
+        // numbers.contain(1);       // searches for value 1 in ArrayList & gives its index
+        // numbers.indexOf(43);      // gives index of element 43
+        // numbers.set(1,452);       // inserts 452 at index 1
+
+        // List Interface
+        List<String> values = new ArrayList<String>();
+        // NOTE: LinkedList uses more memory than ArrayList
+    }
+}
+// In array since size is fixed, we cant add a new element, for that we have to create a new array and then do it
+// This was solved by ArrayList, capacity is a bit large and can easily add new elements, when size is full and then also
+// we insert element, ArrayList resizes itself which array won't do
+// ArrayList can be resized, array can't
+// We can insert new element in ArrayList

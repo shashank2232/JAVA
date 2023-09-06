@@ -1,0 +1,44 @@
+import java.sql.SQLOutput;
+
+interface Bicycle{
+    int a=10;            // properties(attributes) in interfaces are by default final (final int a=10)
+    void applyBrakes(int decrement);
+    void speedUp(int increment);
+}
+interface HornBicycle{
+    void blowHornKTM();
+    void blowHornBullet();
+
+}
+// big advantage of using interfaces is making Multiple Inheritance possible in Java
+// Multiple inheritance isn't possible in java i.e. a class can only extend one super/parent class
+// but a class can implement many interfaces as shown below,this allows a class to inherit behavior from multiple sources, making it flexible and reusable.
+class AvonCycle implements Bicycle,HornBicycle{
+    void blowHorn(){
+        System.out.println("Blowing Horn");
+    }
+    public void applyBrakes(int decrement){
+        System.out.println("Applying BRAKES");
+    }
+    public void speedUp(int increment){
+        System.out.println("Applying Speedup");
+    }
+    public void blowHornKTM(){
+        System.out.println("KTM horn");
+    };
+    public void blowHornBullet(){
+        System.out.println("Bullet horn");
+    };
+}
+
+public class Interfaces {
+    public static void main(String[] args){
+        AvonCycle myCycle = new AvonCycle();
+        myCycle.applyBrakes(1);
+        System.out.println(myCycle.a);
+        // NOTE: You cannot modify properties of Interfaces as they are FINAL
+       //  myCycle.a = 20;            ERROR
+        myCycle.blowHornKTM();
+        myCycle.blowHornBullet();
+    }
+}

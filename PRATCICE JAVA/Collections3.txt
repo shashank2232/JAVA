@@ -1,0 +1,38 @@
+package java_collections;
+
+import java.util.LinkedList;
+import java.util.List;
+
+// LinkedList
+public class Collections2 {
+    public static void main(String[]args){
+        // we can also write as: List<Integer> l1 = new LinkedList<Integer>();
+        // it only matters what we're giving after new, where we create the instance
+        // NOTE: If you only want to add/remove items at the end of your list, use ArrayList
+        // If you want to add/remove items from anywhere(begin,middle,end) use LinkedList
+        // we don't give the size/capacity in LinkedList
+        LinkedList<Integer> l1 = new LinkedList<Integer>();
+        l1.add(12);
+        l1.add(13);
+        l1.add(14);
+        l1.add(15);
+        System.out.println("Iterating Linked List: ");
+        for(int i=0;i<l1.size();i++){
+            System.out.println(l1.get(i));
+        }
+        l1.addLast(21);
+        System.out.println("Iterating Linked List after adding 21 to last: ");
+        for(Integer value:l1){
+            System.out.println(value);
+        }
+        l1.addFirst(24);
+        System.out.println("Printing using for-each: ");
+        l1.forEach((element->{
+            System.out.println(element);
+        }));
+        System.out.println("Iterating Linked List after adding 24 to front: ");
+        for(Integer value:l1){
+            System.out.println(value);
+        }
+    }
+}

@@ -1,0 +1,44 @@
+package java_collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+// Hashmap
+public class Collections3 {
+    public static void main(String[]args){
+        // key:integer, value:stringController
+        
+        HashMap<Integer,String> map = new HashMap<Integer,String>();
+        // to add key:value pairs
+        map.put(1,"One");
+        map.put(2,"Two");
+        map.put(3,"Three");
+        map.put(4,"Four");
+        // to get value using its key
+        String text = map.get(1);
+        System.out.println(text);      // One
+
+        // if we try to get a value that doesn't exist , we get null
+        // String text2 = map.get(7);
+        // System.out.println(text2);      // null
+
+        // if we add same key with diff value , current value overrides the previous value
+        map.put(3,"Hey");
+        System.out.println(map.get(3));              // value added with key 3 is now Hey
+
+        // entry is a variable of type Map.Entry<Integer,String> , this is used to print all pairs in map
+        // The entrySet() method of the Java IdentityHashMap class is used to get a set view of all the key-value
+        // pairs present in the map
+        for(Map.Entry<Integer,String> entry:map.entrySet()){
+//            System.out.println(entry);     prints all key with values
+            int key = entry.getKey();             // .getKey() returns the key of that pair
+            String value = entry.getValue();      // .getValue() returns the value of that pair
+            System.out.println(key + " : " + value);
+        }
+
+    }
+}
+// Hashmap stores data in form of key value pair, can use any kind of objects in them
+// NOTE: We can have duplicate values in MAP but we can't have duplicate KEYS,if we try to write A DUPLICATE KEY we override
+// our previous key.
+// HASHMAP isn't in sorted order.
